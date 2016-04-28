@@ -1,0 +1,9 @@
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\bin\Debug\SerialPortGUI.exe.config
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\bin\Debug\SerialPortGUI.exe
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\bin\Debug\SerialPortGUI.pdb
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.Form1.resources
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.Properties.Resources.resources
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.csproj.GenerateResource.Cache
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.exe
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.pdb
+c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.csprojResolveAssemblyReference.cache
