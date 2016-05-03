@@ -7,3 +7,12 @@ c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPort
 c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.exe
 c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.pdb
 c:\users\lmorales\documents\visual studio 2012\Projects\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.csprojResolveAssemblyReference.cache
+E:\GIT\SerialPortGUI\SerialPortGUI\bin\Debug\SerialPortGUI.exe.config
+E:\GIT\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.exe
+E:\GIT\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.pdb
+E:\GIT\SerialPortGUI\SerialPortGUI\bin\Debug\SerialPortGUI.exe
+E:\GIT\SerialPortGUI\SerialPortGUI\bin\Debug\SerialPortGUI.pdb
+E:\GIT\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.csprojResolveAssemblyReference.cache
+E:\GIT\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.Form1.resources
+E:\GIT\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.Properties.Resources.resources
+E:\GIT\SerialPortGUI\SerialPortGUI\obj\Debug\SerialPortGUI.csproj.GenerateResource.Cache

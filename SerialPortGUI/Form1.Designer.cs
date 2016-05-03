@@ -39,6 +39,10 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.cmbMessageID = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbLvl = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbFreq = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cmbPlay = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbFwBw = new System.Windows.Forms.ComboBox();
@@ -46,6 +50,7 @@
             this.cmbFunctionality = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -127,11 +132,14 @@
             this.cmbMessageID.Name = "cmbMessageID";
             this.cmbMessageID.Size = new System.Drawing.Size(121, 21);
             this.cmbMessageID.TabIndex = 1;
-            this.cmbMessageID.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbMessageID_MouseClick);
-            this.cmbMessageID.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cmbMessageID_MouseMove);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.cmbLvl);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.cmbFreq);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cmbPlay);
             this.groupBox2.Controls.Add(this.btnEnviar);
             this.groupBox2.Controls.Add(this.label6);
@@ -143,10 +151,44 @@
             this.groupBox2.Controls.Add(this.cmbMessageID);
             this.groupBox2.Location = new System.Drawing.Point(442, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 226);
+            this.groupBox2.Size = new System.Drawing.Size(373, 226);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mensaje";
+            // 
+            // cmbLvl
+            // 
+            this.cmbLvl.FormattingEnabled = true;
+            this.cmbLvl.Location = new System.Drawing.Point(155, 97);
+            this.cmbLvl.Name = "cmbLvl";
+            this.cmbLvl.Size = new System.Drawing.Size(121, 21);
+            this.cmbLvl.TabIndex = 12;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(42, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Nivel";
+            // 
+            // cmbFreq
+            // 
+            this.cmbFreq.FormattingEnabled = true;
+            this.cmbFreq.Location = new System.Drawing.Point(155, 62);
+            this.cmbFreq.Name = "cmbFreq";
+            this.cmbFreq.Size = new System.Drawing.Size(121, 21);
+            this.cmbFreq.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(42, 70);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Frecuencia";
             // 
             // cmbPlay
             // 
@@ -189,8 +231,6 @@
             this.cmbFunctionality.Name = "cmbFunctionality";
             this.cmbFunctionality.Size = new System.Drawing.Size(121, 21);
             this.cmbFunctionality.TabIndex = 4;
-            this.cmbFunctionality.SelectedIndexChanged += new System.EventHandler(this.cmbFunctionality_SelectedIndexChanged);
-            this.cmbFunctionality.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cmbFunctionality_MouseMove);
             // 
             // label4
             // 
@@ -209,6 +249,16 @@
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "MessageID";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(282, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Go";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -250,6 +300,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbPlay;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbFreq;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbLvl;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }
 

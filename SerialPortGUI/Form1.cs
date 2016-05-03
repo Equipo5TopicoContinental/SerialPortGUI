@@ -12,15 +12,11 @@ namespace SerialPortGUI
 {
     public partial class Form1 : Form
     {
-        private byte b1, b2, b3;
         public Form1()
         {
             InitializeComponent();
             this.Load += Form1_load;
             Control.CheckForIllegalCrossThreadCalls = false;
-            b1 = (byte)0;
-            b2 = (byte)0;
-            b3 = (byte)0;
         }
         private void Form1_load(object sender, EventArgs e)
         {
@@ -28,15 +24,26 @@ namespace SerialPortGUI
             setCmbFunctionality();
             setCmbFwBw();
             setCmbPlay();
-            puertosDisponibles();
+            setPorts();
+            setCmbFreq();
+            setCmbLvl();
             cmbFunctionality.Hide();
+            cmbFreq.Hide();
+            cmbFwBw.Hide();
+            cmbLvl.Hide();
+            cmbPlay.Hide();
+            label7.Hide();
+            label4.Hide();
+            label5.Hide();
+            label6.Hide();
+            label8.Hide();
         }
 
-        private void puertosDisponibles()
+        private void setPorts()
         {
-            foreach (string puertosDisponibles in System.IO.Ports.SerialPort.GetPortNames())
+            foreach (string port in System.IO.Ports.SerialPort.GetPortNames())
             {
-                cmbPuertos.Items.Add(puertosDisponibles);
+                cmbPuertos.Items.Add(port);
             }
         }
 
@@ -46,24 +53,27 @@ namespace SerialPortGUI
             cmbMessageID.Items.Add("EQU");
             cmbMessageID.Items.Add("Album");
         }
+        private void setCmbFreq()
+        {
+            cmbFreq.Items.Add("Agudos");
+            cmbFreq.Items.Add("Medios");
+            cmbFreq.Items.Add("Bajos");
+        }
+        private void setCmbLvl() {
+            cmbLvl.Items.Add("Aumentar");
+            cmbLvl.Items.Add("Disminuir");
+        }
         private void setCmbFunctionality()
         {
-            if (cmbMessageID.SelectedIndex == 0)
-            {
-                cmbFunctionality.Items.Add("Play");
-                cmbFunctionality.Items.Add("Pause");
-                cmbFunctionality.Items.Add("Stop");
-                cmbFunctionality.Items.Add("FW");
-                cmbFunctionality.Items.Add("BW");
-                cmbFunctionality.Items.Add("Skip");
-                cmbFunctionality.Items.Add("Prev");
-                cmbFunctionality.Items.Add("Reserved");
-            }
-            if(cmbMessageID.SelectedIndex == 1) {
-                cmbFunctionality.Items.Add("Agudos");
-                cmbFunctionality.Items.Add("Medios");
-                cmbFunctionality.Items.Add("Bajos");
-            }
+            cmbFunctionality.Items.Add("Play");
+            cmbFunctionality.Items.Add("Pause");
+            cmbFunctionality.Items.Add("Stop");
+            cmbFunctionality.Items.Add("FW");
+            cmbFunctionality.Items.Add("BW");
+            cmbFunctionality.Items.Add("Skip");
+            cmbFunctionality.Items.Add("Prev");
+            cmbFunctionality.Items.Add("Reserved");
+
         }
         private void setCmbFwBw()
         {
@@ -102,16 +112,7 @@ namespace SerialPortGUI
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            /*try
-            {
-                serialPort1.Write(txtTx.Text.Trim());
-                txtTx.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudo enviar la información", "Error");
-            }*/
-            byte[] message = generaMensaje();
+            byte[] message = generaMensaje().getData();
             try
             {
                 txtTx.Text = message.ToString();
@@ -130,85 +131,55 @@ namespace SerialPortGUI
             txtRx.Text = datosRx;
         }
 
-        private byte[] generaMensaje()
+        private Message generaMensaje()
         {
+            Message message;
             switch (cmbMessageID.SelectedIndex)
             {
                 case 0:
-                    b1 = 0x26;
-                    b2 = (byte)cmbFunctionality.SelectedIndex;
-                    switch (cmbFwBw.SelectedIndex)
-                    {
-                        case 0:
-                            b2 += (byte)0;
-                            break;
-                        case 1:
-                            b2 += (byte)8;
-                            break;
-                        case 2:
-                            b2 += (byte)16;
-                            break;
-                        case 3:
-                            b2 += (byte)24;
-                            break;
-                        default:
-                            break;
-                    }
-                    if (cmbPlay.SelectedIndex == 0) b2 += (byte)0;
-                    if (cmbPlay.SelectedIndex == 1) b2 += (byte)32;
+                    message = new Message((byte)cmbMessageID.SelectedIndex, (byte)cmbFwBw.SelectedIndex, (byte)cmbPlay.SelectedIndex);
                     break;
                 case 1:
-                    b1 = 0x66;
-                    /*switch(){
-                    }*/
+                    message = new Message((byte)cmbFreq.SelectedIndex, (byte)cmbLvl.SelectedIndex);
                     break;
                 case 2:
-                    b1 = 0x44;
+                    //message = new Message();
                     break;
                 default: break;
             }
-
-            
-
-            b3 = (byte)(b1 ^ b2);
-
-            byte[] message = new byte[3];
-            message[0] = b1;
-            message[1] = b2;
-            message[2] = b3;
-
-            return message;
+            return message = new Message(); ;
         }
 
-
-        private void btnSend_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            switch (cmbMessageID.SelectedIndex) {
+                case 0:
+                    cmbFwBw.Show();
+                    cmbFreq.Hide();
+                    cmbLvl.Hide();
+                    cmbPlay.Show();
+                    cmbFunctionality.Show();
+                    label7.Hide();
+                    label4.Show();
+                    label5.Show();
+                    label6.Show();
+                    label8.Hide();
+                    break;
+                case 1:
+                    cmbFreq.Show();
+                    cmbLvl.Show();
+                    cmbFwBw.Hide();
+                    cmbPlay.Hide();
+                    cmbFunctionality.Hide();
+                    label7.Show();
+                    label4.Hide();
+                    label5.Hide();
+                    label6.Hide();
+                    label8.Show();
+                    break;
+                default:
+                    break;
+            }
         }
-
-        private void cmbMessageID_MouseClick(object sender, MouseEventArgs e)
-        {
-            cmbFunctionality.Items.Clear();
-            cmbFunctionality.Show();
-            //setCmbFunctionality();
-        }
-
-        private void cmbFunctionality_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cmbMessageID_MouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void cmbFunctionality_MouseMove(object sender, MouseEventArgs e)
-        {
-            cmbFunctionality.Items.Clear();
-            cmbFunctionality.Show();
-            setCmbFunctionality();
-        }
-
     }
 }
